@@ -305,7 +305,7 @@ public class CIS279_HW7 extends Application {
     double d;                  // Temporary holder for input values.
     
     try {
-   	  // Attempt to retrieve inputs and validate. Failed validation throws an iae 
+      // Attempt to retrieve inputs and validate. Failed validation throws an iae 
       // and our catch block then displays an error dialog.
       // Loop through all income inputs.
       for ( int i=0; i<4; i++ ) {
@@ -313,7 +313,7 @@ public class CIS279_HW7 extends Application {
         if ( d < MINIMUM_INCOME_INPUT || d > MAXIMUM_INCOME_INPUT )
           throw new IllegalArgumentException( String.valueOf(i) );
         totalIncome += d;
-   	  }
+      }
       tfOutputs[TOTAL_INCOME].setText( String.format( "$%.2f", totalIncome ) );
       incomeOutput = true; // Set output state.
        
@@ -332,10 +332,10 @@ public class CIS279_HW7 extends Application {
       loanOutput = true; // Set output state.
 
       // Check if loan payment is within income-to-loan percentage limit.
-  	  double percentage = loan.getMonthlyPayment()/(totalIncome/1200.);
-  	  // Truncate result to 1 decimal place.
+      double percentage = loan.getMonthlyPayment()/(totalIncome/1200.);
+      // Truncate result to 1 decimal place.
       percentage = new BigDecimal( String.valueOf( percentage ) ).setScale( 1, BigDecimal.ROUND_FLOOR ).doubleValue();
-  	  if ( percentage <= MAXIMUM_INCOME_TO_LOAN_PERCENTAGE ) { 
+      if ( percentage <= MAXIMUM_INCOME_TO_LOAN_PERCENTAGE ) { 
         txtEligibility.setFill( Color.GREEN );
         txtEligibility.setText( String.format( "Eligible for loan! Loan to income percentage: %2.1f%%", percentage ) );
       } else {
